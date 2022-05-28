@@ -1,6 +1,7 @@
 #ifndef SPIFFSEditor_H_
 #define SPIFFSEditor_H_
 #include <ESPAsyncWebServer.h>
+#include <LittleFS.h>
 
 extern FS LittleFS;
 
