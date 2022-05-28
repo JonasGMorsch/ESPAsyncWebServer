@@ -2,6 +2,8 @@
 #define SPIFFSEditor_H_
 #include <ESPAsyncWebServer.h>
 
+extern FS LittleFS;
+
 class SPIFFSEditor: public AsyncWebHandler {
   private:
     fs::FS _fs;
@@ -13,7 +15,7 @@ class SPIFFSEditor: public AsyncWebHandler {
 #ifdef ESP32
     SPIFFSEditor(const fs::FS& fs, const String& username=String(), const String& password=String());
 #else
-    SPIFFSEditor(const String& username=String(), const String& password=String(), const fs::FS& fs=SPIFFS);
+    SPIFFSEditor(const String& username=String(), const String& password=String(), const fs::FS& fs=LittleFS);
 #endif
     virtual bool canHandle(AsyncWebServerRequest *request) override final;
     virtual void handleRequest(AsyncWebServerRequest *request) override final;
